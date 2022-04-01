@@ -1,0 +1,67 @@
+<odoo>
+    <!--vistas-->
+    <record id="view_form_europroduct" model="ir.ui.view">
+        <field name="name">view.form.euro.europroduct</field>
+        <field name="model">euro.europroduct</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_launching" widget="many2many_tags"/>
+                    <field name="orientation" widget="many2many_tags"/>
+                    <field name="uso" widget="many2many_tags"/>
+                    <field name="maker" widget="many2many_tags"/>
+                    <field name="description_euro" widget="many2many_tags"/>
+                    <field name="top_note" widget="many2many_tags"/>
+                    <field name="heart_note" widget="many2many_tags"/>
+                    <field name="base_note" widget="many2many_tags"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!--vista tree-->
+    <record id="view_tree_europroduct" model="ir.ui.view">
+        <field name="name">view.tree.euro.europroduct</field>
+        <field name="model">euro.europroduct</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_launching"/>
+                <field name ="orientation"/>
+                <field name="maker" />
+                <field name="description_euro" />
+                <field name="top_note" />
+                <field name="heart_note" />
+                <field name="base_note" />
+            </tree>
+        </field>
+    </record>
+
+    <!--vista search-->
+    <record id="view_search_movimiento" model="ir.ui.view">
+    <field name="name">view.search.euro.europroduct</field>
+    <field name="model">euro.europroduct</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="uso"/>
+            <field name="maker"/>
+            <field name="orientation"/>
+            <filter name="filter_uso" string="Uso" domain="[('uso','=','esotericos')]"/>
+        </search>
+    </field>
+</record>
+
+    <!--acciones  de ventana-->
+    <record id="action_view_europroduct" model="ir.actions.act_window">
+        <field name="name">Europroduct</field>
+        <field name="res_model">euro.europroduct</field>
+    </record>
+    <!--menu-->
+   <menuitem id="menu_main_europroduct"
+              name="Productos Euroesencias"
+              parent=""
+              action="product_euro.action_view_europroduct"/>
+</odoo>
+
+
